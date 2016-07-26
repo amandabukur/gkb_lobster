@@ -128,6 +128,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
+bike_donation_static = os.path.join(PROJECT_ROOT, '../gkb_squid/apps/bike_donations')
+get_inventory_static = os.path.join(PROJECT_ROOT, '../gkb_squid/apps/get_inventory')
+login_static = os.path.join(PROJECT_ROOT, '../gkb_squid/apps/login')
+donation_menu_static = os.path.join(PROJECT_ROOT, '../gkb_squid/apps/donation_menu')
 
+STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles/")
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(bike_donation_static, "static/"),
+    os.path.join(get_inventory_static, "static/"),
+    os.path.join(login_static, "static/"),
+    os.path.join(donation_menu_static, "static/"),
+    )
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 LOGIN_URL = '/login'
